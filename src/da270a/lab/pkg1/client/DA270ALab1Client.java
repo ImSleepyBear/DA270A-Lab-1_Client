@@ -22,7 +22,7 @@ import java.util.Scanner;
 public class DA270ALab1Client {
 
     private static final int PORT = 8000;
-    private static final String SERVER = "192.168.1.3";
+    private static final String SERVER = "192.168.1.4";
     private Scanner scan;
     private String commandToSend = " ";
     private String commandToRetrieve = " ";
@@ -64,7 +64,7 @@ public class DA270ALab1Client {
             while (scan.hasNextLine()) {
                 commandToSend = scan.nextLine();
 
-                outputToServer.writeUTF(commandToSend);
+                outputToServer.writeBytes(commandToSend);
                 outputToServer.flush();
 
                 commandToRetrieve = inputFromServer.readUTF();
